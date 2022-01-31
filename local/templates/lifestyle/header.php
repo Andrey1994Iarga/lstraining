@@ -32,6 +32,11 @@ global $cont; ?>
 </head>
 <body>
 <?$APPLICATION->ShowPanel();?>
+<?
+if($_GET["logout"]=="Y") {
+    $USER->Logout();
+}
+?>
 <aside><a class="logo" <?=(!CSite::InDir('/index.php'))?'href="/"':'';?>><img src="<?=SITE_TEMPLATE_PATH?>/public/assets/images/logo.png"></a><img src="<?=SITE_TEMPLATE_PATH?>/public/assets/images/edu.svg"></aside>
 <main <?if(CSite::InDir("/auth/")):?>class="login"<?endif;?>>
     <?if(!CSite::InDir("/auth/")):?>
@@ -48,10 +53,10 @@ global $cont; ?>
                         </div>
                     </div>
                 </div>
-            <div class="login"><a class="login__user" href="#">
+            <div class="login"><a class="login__user">
                     <div class="login__user--avatar">КА</div>
                     <p>Константин Арсеньев</p></a>
-                <div class="login__btn"><a href="#"></a></div>
+                <div class="login__btn"><a href="?logout=Y"></a></div>
             </div>
         </header>
     <?else:?>

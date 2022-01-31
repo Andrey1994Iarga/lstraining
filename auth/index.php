@@ -1,6 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Авторизация");
+if ($USER->IsAuthorized()) {LocalRedirect("/");}
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:main.auth.form",
 	"auth",
